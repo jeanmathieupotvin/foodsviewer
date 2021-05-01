@@ -1,0 +1,3 @@
+[submodule "lib/digest"]
+	path = lib/digest
+	url = https://github.com/jeanmathieupotvin/digest
