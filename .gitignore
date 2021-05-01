@@ -8,7 +8,7 @@ jspm_packages/
 # By-products CSS and JS files.
 # Generate them through npm scripts.
 public/stylesheets/*.css
-public/javascripts/*.min.js
+public/javascripts/*.js
 
 # Private files
 crypt/
