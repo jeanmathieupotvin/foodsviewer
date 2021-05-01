@@ -1,0 +1,25 @@
+/* || Blocks */
+
+.block {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 3px;
+}
+
+.block__icon {
+  font-size: 3em;
+}
+
+.block__text {
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.alert {
+  /* To be used with .block */
+  border: 1px solid var(--color-secondary);
+  background-color: var(--color-secondary-light-25);
+}

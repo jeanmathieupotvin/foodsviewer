@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("../partials/head") %>
+
+<body>
+    <main class="main">
+        <div>
+            <img src="/images/logo.svg" height="100" alt="FoodsViewer's logo" />
+        </div>
+        <h1 class="main__title">FoodsViewer</h1>
+        <h2 class="main__subtitle">
+            A fast visualization tool based on
+            <a 
+             href="https://github.com/jeanmathieupotvin/digest"
+             target="_blank" 
+             rel="noopener" 
+             class="main__link">digest</a>
+            for Jean-Mathieu and Renée
+        </h2>
+
+        <form 
+            action="/login"
+            method="post"
+            accept-charset="utf-8"
+            autocomplete="off"
+            autocomplete="off"
+            spellcheck="false"
+            class="form">
+            <div class="form__child">
+                <label for="username" class="form__label">Username</label>
+                <input type="text" name="username" class="form__input" required />
+            </div>
+            <div class="form__child">
+                <label for="password" class="form__label">Password</label>
+                <input type="password" name="password" class="form__input" required />
+            </div>
+            <div style="justify-content: center;" class="form__child">
+                <button type="submit" class="form__input form__button">Sign in</button>
+                <button 
+                    type="submit" 
+                    class="form__input form__button button__disabled"
+                    title="This is a private application, you cannot sign up."
+                    disabled>
+                    Sign up
+                </button>
+            </div>
+        </form>
+    </main>
+
+    <%- include("../partials/footer") -%>
+</body>
+
+</html>

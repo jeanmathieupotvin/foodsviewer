@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<%- include("partials/head"); -%>
+
+<body>
+    <header class="header">
+        <div class="header__title">
+            <img class="header__logo" src="/images/logo.svg" height="42" alt="FoodsViewer's logo" />
+            <span class="header__text">FoodsViewer</span>
+        </div>
+        <div class="header__buttons">
+            <button 
+                form="form-logout"
+                type="submit"
+                class="form__input form__button">
+                Log out
+            </button>
+            <button id="btn-menu" class="form__input form__button">
+                Menu
+            </button>
+        </div>
+        <form
+            id="form-logout"
+            action="/logout"
+            method="post"
+            style="display: none;">
+        </form>
+    </header>
+
+    <main class="main">
+        <div class="form" style="display: block;" data-role="query-db">
+            <form 
+                action="/dashboard"
+                method="get"
+                accept-charset="utf-8"
+                autocomplete="off">
+               
+                <div class="form__child">
+                    <label for="search" class="form__label">
+                        <i class="fas fa-search"></i> Search
+                    </label>
+                    <input
+                        name="search"
+                        type="text" 
+                        rel="search"
+                        target="_parent"
+                        placeholder="Type anything"
+                        autocorrect="off"
+                        autocomplete="off"
+                        spellcheck="false"
+                        class="form__input" />
+                </div>
+
+                <div class="form__child">
+                    <label for="sort" class="form__label">
+                        <i class="fas fa-sort-alpha-down"></i> Sort
+                    </label>
+                    <select
+                        name="sort"
+                        title="Change how foods are sorted"
+                        class="form__input">
+                        <option value="foodEn" selected="selected">English names</option>
+                        <option value="foodNative">French names</option>
+                        <option value="catJm">Jean-Mathieu's categories</option>
+                        <option value="catRen">Renée's categories</option>
+                    </select>
+                </div>
+
+                <div class="form__child">
+                    <label for="catJm" class="form__label">
+                        Jean-Mathieu
+                    </label>
+                    <select
+                        name="catJm"
+                        title="Change how foods are displayed for Jean-Mathieu"
+                        class="form__input">
+                        <option value="all" selected="selected">All</option>
+                        <option value="Superfood">Superfood</option>
+                        <option value="Enjoy">Enjoy</option>
+                        <option value="Minimize">Minimize</option>
+                        <option value="Avoid">Avoid</option>
+                    </select>
+                </div>
+
+                <div class="form__child">
+                    <label for="catRen" class="form__label">
+                        Renée
+                    </label>
+                    <select
+                        name="catRen"
+                        title="Change how foods are displayed for Renée"
+                        class="form__input">
+                        <option value="all" selected="selected">All</option>
+                        <option value="Superfood">Superfood</option>
+                        <option value="Enjoy">Enjoy</option>
+                        <option value="Minimize">Minimize</option>
+                        <option value="Avoid">Avoid</option>
+                    </select>
+                </div>
+
+                <div class="form__child">
+                    <button type="submit" class="form__input form__button">
+                        Submit
+                    </button>
+                    <button type="reset" class="form__input form__button">
+                        <a href="/dashboard">Reset</a>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="stats" data-role="show-statistics">
+            <strong><%- foods.length -%></strong> results
+            <% if (search === null) { %> 
+                were found.
+            <% } else { %>
+                containing <span class="stats__keyword"><%- search %></span> 
+                in their English or French name were found.
+            <% } %>
+        </div>
+
+        <div class="popup-img" data-role="show-food-images"></div>
+        
+        <table class="results" data-role="show-foods">
+            <thead class="results__header">
+                <tr class="result__header__sep">
+                    <th colspan="3">FOOD</th>
+                    <th colspan="2">CATEGORIES</th>
+                </tr>
+                <tr>
+                    <th class="results__food-en">ENGLISH</th>
+                    <th class="results__food-fr">FRENCH</th>
+                    <th class="results__food-serv">SERVING</th>
+                    <th class="results__food-jm">JM</th>
+                    <th class="results__food-ren">RENÉE</th>
+                </tr>
+            </thead>
+            <tbody class="results__body">
+                <% foods.forEach(e => { %>
+                    <tr id="<%- e.alias -%>" data-src-img="<%- `/private/images/foods/${e.imgFile}` -%>">
+                        <td data-label="Food"><%- e.foodEn -%></td>
+                        <td data-label="Food (French)"><%- e.foodNative -%></td>
+                        <td data-label="Serving (French)"><%- e.serving -%></td>
+                        <td data-label="JM"><%- e.catJm -%></td>
+                        <td data-label="Renée"><%- e.catRen -%></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </main>
+
+    <%- include("partials/footer") -%>
+</body>
+
+</html>

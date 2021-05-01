@@ -1,0 +1,104 @@
+/* || Form */
+
+/* Change autocomplete styles in Chrome.
+ * Source: https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/
+ */
+ input:-webkit-autofill,
+ input:-webkit-autofill:hover, 
+ input:-webkit-autofill:focus {
+   border: 1px solid var(--color-tertiary);
+   -webkit-text-fill-color: var(--color-text);
+   -webkit-box-shadow: 0 0 0px 1000px var(--color-background) inset;
+   box-shadow: 0 0 0px 1000px var(--color-background) inset;
+   transition: background-color 5000s ease-in-out 0s;
+ }
+ 
+.form {
+  border-top: 1px solid var(--color-tertiary);
+  margin: var(--vertical-spacing) auto;
+}
+
+.form__child {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: left;
+  align-items: center;
+  padding: 1rem;
+  font-size: 1rem;
+  border-bottom: 1px solid var(--color-tertiary);
+}
+
+.form__label {
+  width: 151px; /* Adjusted so that flex items wraps at a width of 450px */
+  padding-left: 2px;
+  font-size: 1.25rem;
+}
+
+.form__label .fas {
+  margin-right: 10px;
+}
+
+.form__input {
+  width: 230px;
+  padding: 10px;
+  color: var(--color-text);
+  font-size: 1em;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid var(--color-tertiary);
+  border-radius: 3px;
+  background-color: var(--color-background);
+  /* Include border and padding in total dimensions; 
+    makes the form fit nicely into remaining space of div */
+  box-sizing: border-box;
+}
+
+.form__input::placeholder {
+  color: var(--color-text);
+}
+
+.form__input:focus::placeholder {
+  color: var(--color-background); /* Hide text when input is in focus */
+}
+
+.form__button {
+  width: 75px;
+  margin: 0;
+  padding: 5px;
+  color: var(--color-tertiary);
+  font-size: 1em;
+  text-align: center;
+  cursor: pointer;
+}
+
+.form__button:not(:last-child) {
+  margin-right: 1.5em;
+}
+
+.form__button a {
+  color: var(--color-tertiary) !important; /* Erase usual styles of anchors. */
+  text-decoration: none;
+}
+
+.form__button:hover,
+.form__button:active {
+  background-color: var(--color-tertiary-light-25);
+}
+
+.button__disabled {
+  color: var(--color-secondary);
+  cursor: not-allowed;
+  border: 1px solid var(--color-secondary);
+  border-radius: 3px;
+}
+
+.button__disabled:hover,
+.button__disabled:active {
+  background-color: var(--color-secondary-light-25);
+}
+
+@media only screen and (max-width: 450px) {
+  .form__label {
+    padding-bottom: 1rem; /* Adjust padding between labels and input boxes */
+  }
+}

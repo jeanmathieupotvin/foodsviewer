@@ -1,0 +1,51 @@
+{
+  "name": "foodsviewer",
+  "version": "1.0.0",
+  "description": "An app to track what Renée and I should eat. Based on digest.",
+  "author": "Jean-Mathieu Potvin",
+  "license": "All Rights Reserved",
+  "private": true,
+  "keywords": [
+    "viome",
+    "digest",
+    "foods",
+    "eat",
+    "potvin",
+    "jean",
+    "mathieu"
+  ],
+  "main": "app.js",
+  "homepage": "https://github.com/jeanmathieupotvin/foodsviewer#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeanmathieupotvin/foodsviewer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jeanmathieupotvin/foodsviewer/issues"
+  },
+  "scripts": {
+    "start": "node -r dotenv/config ./bin/server",
+    "devstart": "nodemon -r dotenv/config ./bin/server",
+    "serverstart": "set DEBUG=express:* & node -r dotenv/config ./bin/server",
+    "sasswatch": "sass ./src/stylesheets:./public/stylesheets --watch --no-source-map",
+    "postcsswatch": "postcss ./public/stylesheets/ --dir ./public/stylesheets/ --watch --verbose",
+    "packjs": "uglifyjs ./src/javascripts/dashboard.js --output ./public/javascripts/dashboard.js --compress --mangle"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "is-svg": "^4.3.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "cssnano": "^4.1.10",
+    "postcss": "^8.2.9",
+    "postcss-cli": "^8.3.1",
+    "uglify-js": "^3.13.5"
+  }
+}

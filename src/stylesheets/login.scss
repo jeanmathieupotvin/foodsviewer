@@ -1,0 +1,51 @@
+@use 'variables';
+@use 'document';
+@use 'footer';
+@use 'forms';
+@use 'links';
+@use 'blocks';
+
+/* || Layout */
+
+body {
+  min-height: calc(100vh - 1rem); /* Remove bottom margin of footer */
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: stretch;
+  padding: 0;
+  margin: 0;
+}
+
+/* || Main */
+
+.main {
+  max-width: var(--max-width);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 0 var(--padding-side);
+  font-size: 1rem;
+}
+
+.main__title {
+  color: var(--color-primary);
+}
+
+.main__subtitle {
+  text-align: center;
+  font-weight: normal;
+  line-height: 2;
+}
+
+.main__link {
+  color: var(--color-secondary);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.main__link:hover,
+.main__link:active {
+  text-decoration: underline;
+}

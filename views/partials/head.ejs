@@ -1,0 +1,35 @@
+<head>
+  <title>FoodsViewer | Dashboard</title>
+  <meta charset="utf-8" />
+  <base href="" target="_self">
+
+  <!-- Meta information -->
+  <meta name="author" content="Jean-Mathieu Potvin"/>
+  <meta name="description" content="An app to track what Renée and I should eat. Based on Viome results."/>
+  <meta name="keywords" content="viome, foods, eat, jean-mathieu, renée, jmp, rr"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#0e141b">
+
+  <!-- Manifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Scripts -->
+  <script src="https://kit.fontawesome.com/1a9c86e038.js" crossorigin="anonymous"></script>
+  <% if (javascript !== undefined) { %>
+      <script src="<%= javascript %>" defer></script>
+  <% } %>
+
+  <!-- Stylesheets -->
+  <link rel="preconnect" href="https://fonts.gstatic.com"/>
+  <link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap"/>
+  <% if (stylesheet !== undefined) { %>
+    <link rel="stylesheet" media="all" href="<%= stylesheet %>"/>
+  <% } %>
+
+  <!-- Other assets -->
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#ff0004">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+</head>

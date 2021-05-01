@@ -1,0 +1,19 @@
+/* || Footer */
+
+.footer {
+  padding: 0 var(--padding-side);
+  font-size: 1rem;
+  text-align: justify;
+  line-height: 1.5;
+}
+  
+.footer__p {
+  max-width: var(--max-width);
+  margin: 1rem auto;
+  font-size: 1em;
+}
+  
+.footer__keyword {
+  color: var(--color-secondary);
+  font-weight: bold;
+}

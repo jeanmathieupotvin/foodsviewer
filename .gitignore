@@ -1,0 +1,15 @@
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Environment variables
+*.env
+
+# By-products CSS and JS files.
+# Generate them through npm scripts.
+public/stylesheets/*.css
+public/javascripts/*.min.js
+
+# Private files
+crypt/
+private/images/
