@@ -87,6 +87,29 @@ const onListening = () => {
 
 /*!
  * =============================================================================
+ * Passenger configuration for production
+ * =============================================================================
+ */
+
+// NOTE: most users will not need this section. It can safely
+// be removed if your application is not served by Passenger.
+
+// Tell Passenger explicitly which server to use.
+if (process.NODE_ENV === 'production' &&
+    typeof(PhusionPassenger) !== 'undefined') {
+  
+  // Do not rely on auto installation of Passenger.
+  PhusionPassenger.configure({ autoInstall: false });
+
+  // Pass Passenger's 'pipe' to the environment's
+  // port. Server will listen on that 'pipe'. Note
+  // that this is not a real pipe, it only tells
+  // Passenger which server to listen to.
+  process.env.PORT = 'passenger';
+}
+
+/*!
+ * =============================================================================
  * Instantiate HTTP server
  * =============================================================================
  */
