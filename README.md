@@ -5,15 +5,16 @@
 # FoodsViewer
 
 A private and secure front-end interface to the
-[digest](https://github.com/jeanmathieupotvin/digest) package built for me and
-my girlfriend.
+[digest](https://github.com/jeanmathieupotvin/digest) package.
+
+First and foremost built for me and my girlfriend.
 
 # Description
 
-FoodsViewer is a responsive web application to better visuzalize results stemming from Viome 
+FoodsViewer is a responsive web application to better visualize results stemming from Viome 
 Gut Intelligence Test® kits. It uses the data structures of
 [digest](https://github.com/jeanmathieupotvin/digest) to better combine results of a couple,
-here mine. It is a **private** application. You cannot sign-up, and you cannot use it. This
+here **mine**. It is a **private** application. You cannot sign up, and you cannot use it. This
 is because I am not affiliated to Viome® in any way. For more information on this, see section
 [Disclaimer](#Disclaimer) below.
 
@@ -21,37 +22,40 @@ is because I am not affiliated to Viome® in any way. For more information on th
 
 Because you can easily clone this project, deploy it and use it privately, just like I do. I
 made my best to make it production ready. Note that you will have to go through the following
-steps to do so.
+steps before deploying.
 
-1. Create a private, untracked `crypt/` folder. This folder will contain your users' information
-and data (basically JSON files containing unparsed `digest::FoodCollection`.
+1. Create a private, untracked, `crypt/` folder. This folder will contain your users' information
+and data (basically JSON files containing unparsed `digest::FoodCollection`).
 
-2. Create a private, untracked `.env` file with some secret `SESSION_TOKEN`. Make it random, really
-long, and **hide it** at all costs. You will also have a set a second environment variable
-`NOD_ENV` and *eventually* set it equal to 'production'.
+2. Create a private, untracked, `.env` file with some secret `SESSION_TOKEN` environment
+variable. Make it random, really long, and **hide it** at all costs. You will also have to
+set a second environment variable `NODE_ENV` equal to `'development'` or `'production'`.
 
 3. Compile the production versions of the CSS and JS scripts with the `npm` commands defined in
 `package.json`.
 
 4. Create a `private/images/` folder, and populate it with images of all the foods included in
-your `digestL::FoodCollections`. Make sure that names passed to `Food::imgFile` match the names
+your `digest::FoodCollection`(s). Make sure that names passed to all `Food::imgFile` match the names
 of your foods' images.
 
-5. Finally, publish to the web, in one click (anyone else tired of these annoying YouTube's *Webflow*
-ads?).
+5. Finally, publish to the web, in one click. (Anyone else tired of these annoying YouTube's
+*Webflow* ads?)
 
 # Implementation
 
-This web application is an Express application embedded into a Node process. It uses
+This web application is an Express application embedded into a single [Node](https://nodejs.org/en/)
+process. It uses
 
-* EJS as its templating system;
-* memorystore, bcrypt, and Passport for authentication, sessions and cookies;
-* SASS to build CSS files;
-* PostCSS to minify CSS files and
-* UglifyJS to compress and minify client-side JS scripts.
+* [EJS](https://ejs.co/) as its templating system;
+* [memorystore](https://www.npmjs.com/package/memorystore) to store sessions' IDs and cookies on the server;
+* [bcrypt](https://www.npmjs.com/package/bcrypt) to manipulate sensible information such as passwords;
+* [Passport](https://http://www.passportjs.org/) for the authentication strategy;
+* [SASS](https://sass-lang.com/) to build CSS files;
+* [PostCSS](https://postcss.org/) to minify CSS files and
+* [UglifyJS](https://www.npmjs.com/package/uglify-js) to compress and minify client-side JS scripts.
 
 The code is straightforward, follows usual Express conventions, and is well documented. It won't
-be complicated to adapt it, I guarantee it. 😄🌈
+be complicated to adapt, I guarantee it. 😄🌈
 
 # Disclaimer
 
@@ -65,4 +69,6 @@ Viome® and Viome Gut Intelligence Test® are registered trademarks. Buy your ow
 
 # Bugs and feedback
 
-Submit them [here](https://github.com/jeanmathieupotvin/foodsviewer/issues). Thanks!
+Submit them [here](https://github.com/jeanmathieupotvin/foodsviewer/issues). Also, if you have the
+time to actually give me some feedback, I would really appreicate it. It is always reassuring to have
+someone else look at your code. Thanks!
