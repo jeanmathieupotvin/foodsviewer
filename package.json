@@ -23,12 +23,12 @@
     "url": "https://github.com/jeanmathieupotvin/foodsviewer/issues"
   },
   "scripts": {
-    "start": "node -r dotenv/config ./bin/server",
-    "devstart": "nodemon -r dotenv/config ./bin/server",
-    "serverstart": "set DEBUG=express:* & node -r dotenv/config ./bin/server",
-    "sasswatch": "sass ./src/stylesheets:./public/stylesheets --watch --no-source-map",
-    "postcsswatch": "postcss ./public/stylesheets/ --dir ./public/stylesheets/ --watch --verbose",
-    "packjs": "uglifyjs ./src/javascripts/dashboard.js --output ./public/javascripts/dashboard.js --compress --mangle"
+    "start": "node -r dotenv/config bin/www",
+    "devstart": "nodemon -r dotenv/config bin/www",
+    "debugstart": "set DEBUG=express:* & node -r dotenv/config bin/www",
+    "sasswatch": "sass src/stylesheets:public/stylesheets --watch --no-source-map",
+    "postcsswatch": "postcss public/stylesheets/ --dir public/stylesheets/ --watch --verbose",
+    "packjs": "uglifyjs src/javascripts/dashboard.js --output public/javascripts/dashboard.js --compress --mangle"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
