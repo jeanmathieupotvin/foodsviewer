@@ -6,7 +6,7 @@
 
 // Extract route's metadata.
 const version       = require('../package').version;
-const digestVersion = require('../lib/digest/package.json').version;
+const digestVersion = require('../lib/digest/package').version;
 
 // Import packages.
 const router   = require('express').Router();
