@@ -60,7 +60,8 @@ I am not affiliated to Viome® in any way. FoodsViewer is an independent project
 No Viome® data is exposed by FoodsViewer. It assumes that each user builds its own application and its
 own datasets manually, from their personal results.
 
-Viome® and Viome Gut Intelligence Test® are registered trademarks. Buy your own kit online from their online store.
+Viome® and Viome Gut Intelligence Test® are registered trademarks. Buy your own kit online from their
+[online store](https://beta.viome.com/products/gut-intelligence).
 
 # Bugs and feedback
 
