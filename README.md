@@ -64,4 +64,4 @@ Viome® and Viome Gut Intelligence Test® are registered trademarks. Buy your ow
 
 # Bugs and feedback
 
-Submit them [here](). Thanks!
+Submit them [here](https://github.com/jeanmathieupotvin/foodsviewer/issues). Thanks!
