@@ -7,7 +7,7 @@
 A private and secure front-end interface to the
 [digest](https://github.com/jeanmathieupotvin/digest) package.
 
-First and foremost built for me and my girlfriend.
+First and foremost, built for me and my girlfriend.
 
 # Overview
 
@@ -27,7 +27,7 @@ is because I am not affiliated to Viome® in any way. For more information on th
 
 # Why is this code public?
 
-Because you can easily clone this project, deploy it and use it privately, just like I do. I
+Because you can easily clone this project, deploy it, and use it privately, just like I do. I
 made my best to make it production ready. Note that you will have to go through the following
 steps before deploying.
 
@@ -47,6 +47,8 @@ of your foods' images.
 
 5. Finally, publish to the web, in one click. (Anyone else tired of these annoying YouTube's
 *Webflow* ads?)
+
+> Anyone else tired of these annoying YouTube's *Webflow* ads? - *Litterally every developer on the planet*.
 
 # Implementation
 
@@ -77,5 +79,5 @@ Viome® and Viome Gut Intelligence Test® are registered trademarks. Buy your ow
 # Bugs and feedback
 
 Submit them [here](https://github.com/jeanmathieupotvin/foodsviewer/issues). Also, if you have the
-time to actually give me some feedback, I would really appreciate it. It is always reassuring to have
-someone else look at your code. Thanks!
+time to give me some feedback, I would really appreciate it. It is always reassuring to have
+someone else look at your code. Thank you!
