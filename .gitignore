@@ -12,4 +12,4 @@ public/javascripts/*.js
 
 # Private files
 crypt/
-private/images/
+private/images/foods/
