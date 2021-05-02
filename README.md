@@ -2,7 +2,7 @@
 <p align="center"><img src="/public/images/logo.svg" alt="FoodsViewer's logo" height="150" /></p>
 <!-- Logo: end -->
 
-# foodsviewer
+# FoodsViewer
 
 A private and secure front-end interface to the
 [digest](https://github.com/jeanmathieupotvin/digest) package built for me and
