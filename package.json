@@ -1,18 +1,17 @@
 {
   "name": "foodsviewer",
   "version": "1.0.0",
-  "description": "An app to track what Renée and I should eat. Based on digest.",
+  "description": "A private and secure front-end interface to the digest package.",
   "author": "Jean-Mathieu Potvin",
-  "license": "All Rights Reserved",
+  "license": "MIT License",
   "private": true,
   "keywords": [
     "viome",
     "digest",
     "foods",
     "eat",
-    "potvin",
-    "jean",
-    "mathieu"
+    "gut",
+    "tracker"
   ],
   "main": "app.js",
   "homepage": "https://github.com/jeanmathieupotvin/foodsviewer#readme",
