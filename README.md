@@ -34,7 +34,7 @@ set a second environment variable `NODE_ENV` equal to `'development'` or `'produ
 3. Compile the production versions of the CSS and JS scripts with the `npm` commands defined in
 `package.json`.
 
-4. Create a `private/images/` folder, and populate it with images of all the foods included in
+4. Create a `private/images/foods` folder, and populate it with images of all the foods included in
 your `digest::FoodCollection`(s). Make sure that names passed to all `Food::imgFile` match the names
 of your foods' images.
 
