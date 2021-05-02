@@ -13,7 +13,10 @@ const { checkAuth } = require('../passport.config');
 
 // Extract route's metadata.
 const version       = require('../package').version;
-const digestVersion = require('../lib/digest/package.json').version;
+const digestVersion = require('../lib/digest/package').version;
+
+// Import all users' IDs.
+const userIds = require('../crypt/users').map(e => e.id);
 
 /*!
  * =============================================================================
@@ -24,10 +27,13 @@ const digestVersion = require('../lib/digest/package.json').version;
 // We create an object into which all users'
 // FoodCollections are loaded. Keys of that
 // object match users' IDs.
-const foodCollections = {
-  cf75b6b9: new digest.FoodCollection(require('../crypt/cf75b6b9')),
-  a135abc2: new digest.FoodCollection(require('../crypt/a135abc2'))
-};
+const foodCollections = {};
+
+// Load all FoodCollection instances
+// into FoodCollections.
+userIds.forEach(e => { 
+  foodCollections[e] = new digest.FoodCollection(require(`../crypt/${e}`));
+});
 
 /*!
  * =============================================================================
