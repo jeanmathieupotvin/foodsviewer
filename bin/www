@@ -95,7 +95,7 @@ const onListening = () => {
 // be removed if your application is not served by Passenger.
 
 // Tell Passenger explicitly which server to use.
-if (process.NODE_ENV === 'production' &&
+if (process.env.NODE_ENV === 'production' &&
     typeof(PhusionPassenger) !== 'undefined') {
   
   // Do not rely on auto installation of Passenger.
