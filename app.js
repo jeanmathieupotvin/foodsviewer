@@ -5,10 +5,11 @@
  */
 
 // Import packages.
-const express  = require('express');
-const session  = require('express-session');
-const path     = require('path');
-const passport = require('passport');
+const express     = require('express');
+const session     = require('express-session');
+const path        = require('path');
+const passport    = require('passport');
+const MemoryStore = require('memorystore')(session);
 
 // Import routes.
 const indexRoute     = require('./routes/index');
@@ -21,7 +22,12 @@ const errorRoute     = require('./routes/error');
 // Import Passport configuration.
 const { initPassport } = require('./passport.config');
 
-// Instantiate a new Express application.
+/*!
+ * =============================================================================
+ * Initialize Express application
+ * =============================================================================
+ */
+
 const app = express();
 
 /*!
@@ -31,40 +37,82 @@ const app = express();
  */
 
 // To salt/hash a password before storing it.
-// require('bcrypt').hash('ipass_to_hash_here', 10).then(r => console.log(r));
+// require('bcrypt').hash('pass_to_hash_here', 10).then(r => console.log(r));
 
 // Initialize Passport Strategy.
 initPassport(passport);
 
 /*!
  * =============================================================================
- * Define app's general parameters
+ * Define app's view engine (EJS)
  * =============================================================================
  */
 
-// Set view engine setup.
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Set static files location.
+/*!
+ * =============================================================================
+ * Define app's static/public files location
+ * =============================================================================
+ */
+
 app.use(express.static(path.join(__dirname, 'public')));
+
+/*!
+ * =============================================================================
+ * Decode and parse URL queries
+ * =============================================================================
+ */
 
 // Make sure we can access form's values
 // inside body of (POST) Request instances.
 app.use(express.urlencoded({ extended: false }));
 
-// Set sessions and persistency mechanism.
-app.use(session({
-    secret: process.env.SESSION_TOKEN,
+/*!
+ * =============================================================================
+ * Sessions and cookies
+ * =============================================================================
+ */
+
+// Set a maxAge validity of 1 hour.
+// MemoryStore will be pruned at the same rate.
+const maxAge = 1000 * 60 * 60; // milliseconds
+
+// Set cookies' parameters.
+const cookie = {
     httpOnly: true,
-    secure: true,
+    secure: false,
     sameSite: true,
-    maxAge: 600000,  // miliseconds (10 minutes)
+    maxAge: maxAge
+};
+
+// In production, app is hidden behind a
+// proxy, and is (currently) served via
+// Passenger. We 'trust' this proxy, and
+// enforce secure cookies.
+if (process.env.NODE_ENV === 'production') {
+    app.set('trust proxy', 1);
+    cookie.secure = true;
+}
+
+// Set sessions and persistency mechanism.
+// We use the improved MemoryStore of the
+// memorystore package. Set environment 
+// variable DEBUG=memorystore to debug.
+app.use(session({
+    cookie: cookie,
+    name: 'connectSessionID',
+    store: new MemoryStore({
+        checkPeriod: maxAge // Pruning step interval.
+    }),
+    secret: process.env.SESSION_TOKEN,
     resave: false,
     saveUninitialized: false
 }));
 
-// Set authentication parameters.
+// Pass initialized Passport's strategy
+// tp app, activate it, and use sessions.
 app.use(passport.initialize());
 app.use(passport.session());
 
