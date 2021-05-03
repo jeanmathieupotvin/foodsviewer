@@ -87,12 +87,16 @@ const cookie = {
     maxAge: maxAge
 };
 
-// In production, app is hidden behind a
-// proxy, and is (currently) served via
-// Passenger. We 'trust' this proxy, and
-// enforce secure cookies.
+// In production, app is usually hidden
+// behind a proxy (such as NGINX) that
+// handles HTTPS requests.
 if (process.env.NODE_ENV === 'production') {
+    
+    // Trust the first ip address found in
+    // the vector req.ips.
     app.set('trust proxy', 1);
+
+    // Enforce secure cookies.
     cookie.secure = true;
 }
 
