@@ -36,7 +36,7 @@ and data (basically JSON files containing unparsed `digest::FoodCollection`).
 
 2. Create a private, untracked, `.env` file with some secret `SESSION_TOKEN` environment
 variable. Make it random, really long, and **hide it** at all costs. You will also have to
-set a second environment variable `NODE_ENV` equal to `'development'` or `'production'`.
+set a second environment variable `NODE_ENV` equal to `development` or `production`.
 
 3. Compile the production versions of the CSS and JS scripts with the `npm` commands defined in
 `package.json`.
