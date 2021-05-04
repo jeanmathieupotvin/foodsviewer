@@ -93,7 +93,8 @@ const cookie = {
 if (process.env.NODE_ENV === 'production') {
     
     // Trust the first ip address found in
-    // the vector req.ips.
+    // the vector req.ips. This is equivalent
+    // to trusting our proxy.
     app.set('trust proxy', 1);
 
     // Enforce secure cookies.
@@ -107,6 +108,7 @@ if (process.env.NODE_ENV === 'production') {
 app.use(session({
     cookie: cookie,
     name: 'connectSessionID',
+    proxy: process.env.NODE_ENV === 'production',
     store: new MemoryStore({
         checkPeriod: maxAge // Pruning step interval.
     }),
