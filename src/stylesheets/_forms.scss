@@ -1,8 +1,7 @@
 /* || Form */
 
-/* Change autocomplete styles in Chrome.
- * Source: https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/
- */
+// Change autocomplete styles in Chrome.
+// Source: https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/
  input:-webkit-autofill,
  input:-webkit-autofill:hover, 
  input:-webkit-autofill:focus {
@@ -29,7 +28,7 @@
 }
 
 .form__label {
-  width: 151px; /* Adjusted so that flex items wraps at a width of 450px */
+  width: 151px; // Adjusted so that flex items wraps at a width of 450px.
   padding-left: 2px;
   font-size: 1.25rem;
 }
@@ -48,8 +47,8 @@
   border: 1px solid var(--color-tertiary);
   border-radius: 3px;
   background-color: var(--color-background);
-  /* Include border and padding in total dimensions; 
-    makes the form fit nicely into remaining space of div */
+  // Include border and padding in total dimensions; 
+  // makes the form fit nicely into remaining space of div.
   box-sizing: border-box;
 }
 
@@ -58,7 +57,7 @@
 }
 
 .form__input:focus::placeholder {
-  color: var(--color-background); /* Hide text when input is in focus */
+  color: var(--color-background); // Hide text when input is in focus.
 }
 
 .form__button {
@@ -76,7 +75,7 @@
 }
 
 .form__button a {
-  color: var(--color-tertiary) !important; /* Erase usual styles of anchors. */
+  color: var(--color-tertiary) !important; // Erase usual styles of anchors.
   text-decoration: none;
 }
 
@@ -99,6 +98,6 @@
 
 @media only screen and (max-width: 450px) {
   .form__label {
-    padding-bottom: 1rem; /* Adjust padding between labels and input boxes */
+    padding-bottom: 1rem; // Adjust padding between labels and input boxes.
   }
 }
