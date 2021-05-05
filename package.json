@@ -27,7 +27,7 @@
     "devstart": "nodemon -r dotenv/config bin/www",
     "debugstart": "set DEBUG=express:* & node -r dotenv/config bin/www",
     "sasswatch": "sass src/stylesheets:public/stylesheets --watch --no-source-map",
-    "postcsswatch": "postcss public/stylesheets/ --dir public/stylesheets/ --watch --verbose",
+    "postcss": "postcss public/stylesheets/ --replace --verbose",
     "packjs": "uglifyjs src/javascripts/dashboard.js --output public/javascripts/dashboard.js --compress --mangle"
   },
   "dependencies": {
