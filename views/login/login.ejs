@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include("../partials/head") %>
+<%- include("../partials/_head") %>
 
 <body>
     <main class="main">
@@ -19,36 +19,10 @@
             for Jean-Mathieu and Renée
         </h2>
 
-        <form 
-            action="/login"
-            method="post"
-            accept-charset="utf-8"
-            autocomplete="off"
-            autocomplete="off"
-            spellcheck="false"
-            class="form">
-            <div class="form__child">
-                <label for="username" class="form__label">Username</label>
-                <input type="text" name="username" class="form__input" required />
-            </div>
-            <div class="form__child">
-                <label for="password" class="form__label">Password</label>
-                <input type="password" name="password" class="form__input" required />
-            </div>
-            <div style="justify-content: center;" class="form__child">
-                <button type="submit" class="form__input form__button">Sign in</button>
-                <button 
-                    type="submit" 
-                    class="form__input form__button button__disabled"
-                    title="This is a private application, you cannot sign up."
-                    disabled>
-                    Sign up
-                </button>
-            </div>
-        </form>
+        <%- include("../partials/_login-form") -%>
     </main>
 
-    <%- include("../partials/footer") -%>
+    <%- include("../partials/_footer") -%>
 </body>
 
 </html>
