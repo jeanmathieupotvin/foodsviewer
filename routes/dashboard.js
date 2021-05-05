@@ -29,8 +29,12 @@ const userIds = require('../crypt/users').map(e => e.id);
 // object match users' IDs.
 const foodCollections = {};
 
-// Load all FoodCollection instances
-// into FoodCollections.
+// Load all FoodCollection instances into
+// FoodCollections. If you have more users
+// you should consider loading the data on
+// the fly asynchronously and move that
+// operation in the router. You could also
+// consider user a safe key-value store.
 userIds.forEach(e => { 
   foodCollections[e] = new digest.FoodCollection(require(`../crypt/${e}`));
 });
