@@ -4,6 +4,10 @@
 @use 'forms';
 @use 'links';
 
+/* || Variables */
+
+$mobile-max-width: 500px; // Below this threshold, we use the mobile UI for table.
+
 /* || Layout */
 
 body {
@@ -43,7 +47,7 @@ body {
 }
 
 .header__buttons {
-  margin-top: 0.75rem; /* Manually adjusted for better with header__title */
+  margin-top: 0.75rem; // Manually adjusted for better with header__title.
 }
 
 /* || Main */
@@ -78,6 +82,16 @@ body {
   overflow: hidden;
   z-index: 1;
   border-radius: 3px;
+}
+
+@media only screen and (max-width: $mobile-max-width) {
+  // Position .popup-img at bottom right of viewport 
+  // on small screens.
+  .popup-img {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+  }
 }
 
 /* || Table */
@@ -127,16 +141,16 @@ body {
   background-color: var(--color-primary-light-75);
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: $mobile-max-width) {
   /* || Responsive table */
-  /* .results is transformed into a list-like format on small screens. */
+  // .results is transformed into a list-like format on small screens.
   
   .results {
     border-bottom: unset;
   }
 
   .results__header {
-    display: none; /* Hide header */
+    display: none; // Hide header.
   }
 
   .results__body {
@@ -144,7 +158,7 @@ body {
   }
 
   .results__body tr {
-    /* Transform rows into grid containers */
+    // Transform rows into grid containers.
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
@@ -154,7 +168,7 @@ body {
   }
 
   .results__body tr:first-child {
-    margin: 0; /* Remove excess space from first child. */
+    margin: 0; // Remove excess space from first child.
   }
 
   .results__body td {
@@ -168,7 +182,7 @@ body {
   }
 
   .results__body td::before {
-    /* Add label to left of grid childs */
+    // Add label to left of grid childs.
     content: attr(data-label);
     float: left;
     padding-right: 10px;
