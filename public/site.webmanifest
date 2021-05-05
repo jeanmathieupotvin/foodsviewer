@@ -1,7 +1,7 @@
 {
     "name": "FoodsViewer",
     "short_name": "FoodsViewer",
-    "description": "An app to track what Renée and I should eat. Based on digest.",
+    "description": "A private and secure front-end interface to the digest package.",
     "dir": "ltr",
     "lang": "en",
     "orientation": "any",
