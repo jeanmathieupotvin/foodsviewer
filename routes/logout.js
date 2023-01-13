@@ -24,8 +24,13 @@ router.get('/', (req, res, next) => {
  */
 
 router.post('/', (req, res) => {
-  req.logOut();
-  res.redirect('/login');
+  req.logout((err) => {
+    if (err) {
+      return next(err);
+    }
+
+    res.redirect('/login');
+  });
 });
 
 /*!
